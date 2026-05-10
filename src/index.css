@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Premium light rehab theme — derived from brand logo (navy + mint) */
+    --background: 200 40% 98%;          /* near-white with subtle cool tint */
+    --foreground: 215 45% 14%;          /* deep navy text */
+
+    --card: 0 0% 100%;                  /* #FFFFFF */
+    --card-foreground: 215 45% 14%;
+    --card-elevated: 200 40% 96%;       /* slightly tinted surface */
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 45% 14%;
+
+    --primary: 215 60% 24%;             /* #1B3A6B brand navy */
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 215 55% 38%;
+
+    --secondary: 200 35% 93%;           /* light surface */
+    --secondary-foreground: 215 45% 14%;
+
+    --muted: 200 35% 94%;
+    --muted-foreground: 215 15% 45%;
+
+    --accent: 168 60% 56%;              /* #4FD1B8 brand mint */
+    --accent-foreground: 215 60% 18%;
+    --accent-soft: 168 60% 92%;
+
+    --success: 168 55% 42%;             /* mint-aligned recovery green */
+    --success-foreground: 0 0% 100%;
+
+    --warning: 32 95% 56%;              /* streak / xp highlight */
+    --warning-foreground: 215 60% 18%;
+
+    --destructive: 0 72% 58%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 25% 90%;
+    --input: 210 25% 90%;
+    --ring: 215 60% 24%;
+
+    --radius: 1.25rem;
+
+    --shadow-soft: 0 8px 24px -10px hsl(215 60% 20% / 0.08), 0 2px 6px -2px hsl(215 60% 20% / 0.04);
+    --shadow-glow: 0 16px 40px -12px hsl(215 60% 24% / 0.35);
+    --shadow-card: 0 1px 2px hsl(215 40% 20% / 0.04), 0 4px 16px -6px hsl(215 40% 20% / 0.08);
+    --gradient-primary: linear-gradient(135deg, hsl(215 60% 24%), hsl(215 55% 38%));
+    --gradient-success: linear-gradient(135deg, hsl(168 55% 42%), hsl(168 60% 56%));
+    --gradient-hero: linear-gradient(140deg, hsl(215 60% 22%) 0%, hsl(210 50% 32%) 55%, hsl(168 55% 42%) 130%);
+    --gradient-mint: linear-gradient(135deg, hsl(168 60% 56%), hsl(180 55% 60%));
+    --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* App is light-only — keep tokens identical so .dark cannot break theme */
+    --background: 200 40% 98%;
+    --foreground: 215 45% 14%;
+    --card: 0 0% 100%;
+    --card-foreground: 215 45% 14%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 45% 14%;
+    --primary: 215 60% 24%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 200 35% 93%;
+    --secondary-foreground: 215 45% 14%;
+    --muted: 200 35% 94%;
+    --muted-foreground: 215 15% 45%;
+    --accent: 168 60% 56%;
+    --accent-foreground: 215 60% 18%;
+    --destructive: 0 72% 58%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 25% 90%;
+    --input: 210 25% 90%;
+    --ring: 215 60% 24%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01", "cv11";
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", system-ui, sans-serif;
+  }
+}
+
+.transition-smooth {
+  transition: var(--transition-smooth);
+}
