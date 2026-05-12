@@ -30,23 +30,27 @@ export const BottomNav = ({ active, onChange }: Props) => {
                 onClick={() => onChange(t.key)}
                 aria-label={t.label}
                 aria-current={isActive ? "page" : undefined}
-                className="relative flex flex-col items-center justify-center gap-1 py-2.5 transition-smooth active:scale-95"
+                className="relative flex flex-col items-center justify-center gap-1 py-3 transition-all duration-200 active:scale-95 touch-manipulation min-h-[64px]"
               >
-                <Icon
-                  className={`h-5 w-5 transition-smooth ${
-                    isActive ? "text-primary" : "text-muted-foreground"
-                  }`}
-                  strokeWidth={isActive ? 2.6 : 2}
-                />
-                <span
-                  className={`text-[10px] font-bold tracking-tight transition-smooth ${
-                    isActive ? "text-primary" : "text-muted-foreground"
-                  }`}
-                >
-                  {t.label}
-                </span>
+                {/* Larger tap target */}
+                <div className={`flex flex-col items-center gap-1 ${isActive ? 'scale-110' : ''} transition-transform duration-200`}>
+                  <Icon
+                    className={`h-6 w-6 transition-all duration-200 ${
+                      isActive ? "text-primary" : "text-muted-foreground"
+                    }`}
+                    strokeWidth={isActive ? 2.6 : 2}
+                  />
+                  <span
+                    className={`text-[10px] font-bold tracking-tight transition-all duration-200 ${
+                      isActive ? "text-primary" : "text-muted-foreground"
+                    }`}
+                  >
+                    {t.label}
+                  </span>
+                </div>
+                {/* Active indicator with animation */}
                 {isActive && (
-                  <span className="absolute -top-0.5 h-1 w-7 rounded-full bg-accent" />
+                  <span className="absolute -top-0.5 h-1 w-8 rounded-full bg-accent animate-in fade-in slide-in-from-bottom-2 duration-200" />
                 )}
               </button>
             );
