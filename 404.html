@@ -4,18 +4,26 @@
     <meta charset="utf-8">
     <title>Comeback - Redirecting...</title>
     <script type="text/javascript">
-      var pathSegmentsToKeep = 1;
+      // GitHub Pages SPA redirect for project pages (not root domain)
+      // This keeps users within the /comeback/ path
+      
+      var pathSegmentsToKeep = 1; // Keep the /comeback/ part
       
       var l = window.location;
-      l.replace(
-        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
-        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
-        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-        l.hash
-      );
+      
+      // Build the redirect URL, preserving the repo path
+      var redirect = l.protocol + '//' + l.hostname + 
+                    (l.port ? ':' + l.port : '') +
+                    l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + 
+                    '/?/' +
+                    l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+                    (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+                    l.hash;
+      
+      l.replace(redirect);
     </script>
   </head>
   <body>
+    <!-- Redirecting to app... -->
   </body>
 </html>
